@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Unknow Number</title>
+</head>
+<body>
+  <main class="main">
+    <button class="open-btn" type="button">
+      <span class="visually-hidden">Открыть меню</span>
+    </button>
+    <section class="sidebar-menu">
+      <button class="close-btn" type="button">
+        <span class="visually-hidden">Закрыть меню</span>
+      </button>
+      <ul class="sidebar-menu__list">
+        <li class="sidebar-menu__item complexity">
+          <button class="sidebar-menu__button complexity__button" type="button">Выбрать уровень сложности</button>
+          <label class="complexity__title visually-hidden">Выбрать уровень сложности:</label>
+          <select class="complexity__list sidebar-menu__button visually-hidden" name="complexity__list">
+            <option value="3" selected>Very Easy</option>
+            <option value="5">Easy</option>
+            <option value="7">Medium</option>
+            <option value="10">Hard</option>
+            <option value="15">Ultra</option>
+          </select>
+        </li>
+        <li class="sidebar-menu__item rules">
+          <button class="rules__button sidebar-menu__button" type="button">Правила</button>
+        </li>
+        <li class="sidebar-menu__item results">
+          <button class="results__button sidebar-menu__button" type="button">Таблица результатов</button>
+        </li>
+      </ul>
+    </section>
+    <div class="main-wrap">
+      <section class="playing-ground">
+        <div class="playing-ground__info">
+          <div class="seconds-counter">
+            <label for="stop-watch">Время:</label>
+            <input class="stop-watch" name="stop-watch" id="stop-watch" value="00:00:00.00" readonly>
+          </div>
+          <div class="current">
+            <label for="current-num">Текущая сумма:</label>
+            <input type="number" name="current-num" id="current-num" value="0" readonly>
+          </div>
+          <div class="target">
+            <label for="target-num">Необходимая сумма:</label>
+            <input type="number" name="target-num" id="target-num" value="0" readonly>
+          </div>
+        </div>
+        <ul class="playing-ground__list">
+        </ul>
+      </section>
+    </div>
+    <section class="popup popup-bounce">
+      <p class="popup__text"></p>
+    </section>
+  </main>
+
+    <template id="playing-cell">
+      <li class="playing-ground__item">
+        <button class="playing-ground__button">
+          <span class="playing-ground__text visually-hidden"></span>
+        </button>
+      </li>
+    </template>
+
+    <template id="success">
+      <div class="success">
+        <p class="success__text">Успех!</p>
+        <div class="success__user-info">
+          <p class="success__text">Вашe время: <span class="success__time"></span></p>
+          <label for="user-name">Введите свое имя:</label>
+          <input type="text" name="user-name" id="user-name">
+        </div>
+        <div class="success__buttons">
+          <button>Сохранить время</button>
+          <button>Попробовать снова</button>
+          <button>Закрыть</button>
+        </div>
+      </div>
+    </template>
+
+    <template id="fail">
+      <div class="fail__message">
+        <p class="success__text">Неудача! Попробуйте еще раз</p>
+        <button>Попробовать снова</button>
+      </div>
+    </template>
+</body>
+</html>
