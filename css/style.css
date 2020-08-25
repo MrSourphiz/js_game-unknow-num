@@ -9,38 +9,6 @@ body {
 .visually-hidden {
 	display: none;
 }
-.open-btn {
-  position: fixed;
-
-	top: 20px;
-  left: 20px;
-
-	width: 50px;
-  height: 50px;
-  
-	background-color: rgba(0, 0, 0, 0.7);
-	border: 3px solid transparent;
-	border-radius: 100%;
-}
-
-.open-btn::before {
-  content: '';
-
-	position: absolute;
-	top: 12px;
-  left: 9px;
-
-	width: 25px;
-  height: 3px;
-
-	background-color: #ffffff;
-	box-shadow: 0 7px #ffffff,0 14px #ffffff;
-}
-
-.open-btn:hover {
-	cursor: pointer;
-	border-color: #ffffff;
-}
 
 .sidebar-menu {
 	position: fixed;
@@ -60,22 +28,57 @@ body {
   transition: .25s;
 }
 
-.close-btn {
-  position: relative;
+.open-button {
+  position: fixed;
+
+	top: 20px;
+  left: 20px;
+
+	width: 50px;
+  height: 50px;
+
+	background-color: rgba(0, 0, 0, 0.7);
+	border: 3px solid transparent;
+	border-radius: 100%;
+}
+
+.open-button::before {
+  content: '';
+
+	position: absolute;
+	top: 12px;
+  left: 9px;
+
+	width: 25px;
+  height: 3px;
+
+	background-color: #ffffff;
+	box-shadow: 0 7px #ffffff,0 14px #ffffff;
+}
+
+.open-button:hover {
+	cursor: pointer;
+	border-color: #ffffff;
+}
+
+.close-button {
+  position: fixed;
+	top: 20px;
+	left: 210px;
 
 	width: 50px;
   height: 50px;
 
   background-color: transparent;
 
-	margin-top: 20px;
-  margin-left: 210px;
-
 	border: 3px solid transparent;
-	border-radius: 100%;
+  border-radius: 100%;
+
+  transition: .25s;
+	z-index: 20;
 }
 
-.close-btn::after {
+.close-button::after {
   content: '';
 
 	position: absolute;
@@ -89,7 +92,7 @@ body {
 	transform: rotate(-45deg);
 }
 
-.close-btn::before {
+.close-button::before {
   content: '';
 
 	position: absolute;
@@ -103,13 +106,13 @@ body {
 	transform: rotate(45deg);
 }
 
-.close-btn:hover {
+.close-button:hover {
 	cursor: pointer;
 	border-color: #ffffff;
 }
 
 .sidebar-menu__list {
-	margin-top: 25px;
+	margin-top: 100px;
 }
 
 .sidebar-menu__item {
