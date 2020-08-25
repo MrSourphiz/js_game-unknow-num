@@ -13,8 +13,9 @@
   let fragment = document.createDocumentFragment();
 
   let sidebarMenu = document.querySelector('.sidebar-menu');
-  let openSidebarBtn = document.querySelector('.open-btn');
-  let closeSidebarBtn = document.querySelector('.close-btn');
+  let sidebarBtn = document.querySelector('.sidebar-button');
+  let sidebarBtnDescription = sidebarBtn.querySelector('span');
+  let sidebarIsOpen = false;
 
   let complexity = document.querySelector('.complexity__list');
   let complexityOptions = complexity.querySelectorAll('option');
@@ -83,15 +84,21 @@
     targetNumInput.value = number * generateRandomNumber(15, 35);
   };
 
-  let openSidebar = function () {
-    sidebarMenu.style.marginLeft = 0;
-    openSidebarBtn.classList.add('visually-hidden');
-  };
-
-  let closeSidebar = function () {
-    sidebarMenu.style.marginLeft = '-280px';
-    openSidebarBtn.classList.remove('visually-hidden');
-    complexity.classList.add('visually-hidden');
+  let toggleSidebar = function () {
+    if (!sidebarIsOpen) {
+      sidebarIsOpen = !sidebarIsOpen;
+      sidebarMenu.style.marginLeft = 0;
+      sidebarBtn.classList.remove('open-button');
+      sidebarBtn.classList.add('close-button');
+      sidebarBtnDescription.textContent = 'Закрыть меню';
+    } else {
+      sidebarIsOpen = !sidebarIsOpen;
+      sidebarMenu.style.marginLeft = '-280px';
+      complexity.classList.add('visually-hidden');
+      sidebarBtn.classList.remove('close-button');
+      sidebarBtn.classList.add('open-button');
+      sidebarBtnDescription.textContent = 'Открыть меню';
+    }
   };
 
   let toggleComplexity = function () {
@@ -379,7 +386,6 @@
     removeCells();
     getListContent();
     resetTime();
-    closeSidebar();
     currentNumInput.value = 0;
     popupText.textContent = '';
     popup.classList.add('popup__close');
@@ -387,9 +393,7 @@
   };
 
   createTable();
-
+  sidebarBtn.addEventListener('click', toggleSidebar);
   complexity.addEventListener('change', createTable);
-  openSidebarBtn.addEventListener('click', openSidebar);
-  closeSidebarBtn.addEventListener('click', closeSidebar);
   complexityButton.addEventListener('click', toggleComplexity);
 })();
